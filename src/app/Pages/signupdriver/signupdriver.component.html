@@ -1,0 +1,52 @@
+<div class="signup-container">
+
+  <mat-card>
+    <mat-card-header>
+      <div class="app-part">
+        <img
+          src="../../../assets/images/app_logo.jpg"
+          alt="Logo"
+          class="logo"
+          routerLink="/"
+        />
+        <span class="app-name">Traffici Signup</span>
+      </div>
+    </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="onSubmit()">
+         
+          <div class="input-container">
+            <input placeholder="Nom" name="nom" ngModel required />
+          </div>
+          <div class="input-container">
+            <input placeholder="Prenom" name="prenom" ngModel required />
+          </div>
+          <div class="input-container">
+            <input
+              placeholder="Numero de telephone"
+              name="telephone"
+              ngModel
+              required
+            />
+          </div>
+          <div class="input-container">
+            <input placeholder="Email" name="email" ngModel required />
+          </div>
+          <div class="input-container" >
+            <input
+             
+              matInput
+              placeholder="Date"
+              name="date"
+              ngModel
+              required
+            />
+          </div>  
+    
+          <button type="submit">Register</button>
+        </form>
+    
+        <p>Switch to <a routerLink="/signup">Client Signup</a></p>
+      </mat-card-content>
+    </mat-card>
+</div>

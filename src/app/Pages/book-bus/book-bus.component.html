@@ -1,0 +1,108 @@
+<div class="header-section">
+  <h1>Discover Convenient Bus Booking</h1>
+  <p>Effortlessly organize your <strong>travel schedule</strong> from the comfort of your home,
+    without <strong>the hassle of phone calls</strong>!</p>
+</div>
+<div class="container">
+
+  <div class="travel-directions">
+
+    <h2>Bus Lines from {{ departStation }} to {{ arrivalStation }}</h2>
+    <div *ngIf="relevantBusLines.length > 0; else noMatch">
+      <mat-card class="bus-lines-card">
+        <mat-card-title> Select a bus line:</mat-card-title>
+        <!-- Display direct lines -->
+        <ng-container *ngFor="let entry of relevantBusLines">
+          <h3 *ngIf="entry.type === 'Direct'">Direct Bus Lines:</h3>
+          <ul *ngIf="entry.type === 'Direct'">
+            <li *ngFor="let busLine of entry.lines">
+              <button
+                mat-button
+                class="bus-line-button"
+                (click)="onBusLineClick(busLine.name)"
+              >
+                Line {{ busLine.name }}: Station {{ departStation }} - Station
+                {{ arrivalStation }}
+              </button>
+            </li>
+          </ul>
+        </ng-container>
+  
+        <!-- Display unique indirect lines -->
+        <ng-container *ngFor="let entry of relevantBusLines">
+          <h3 *ngIf="entry.type === 'Indirect'">Indirect Bus Lines:</h3>
+          <ul *ngIf="entry.type === 'Indirect'">
+            <li>
+              <button
+                mat-button
+                class="bus-line-button"
+                (click)="
+                  onIndirectLineClick(entry.lines[0].name, entry.lines[1].name)
+                "
+              >
+                Line {{ entry.lines[0].name }}: Station {{ departStation }} -
+                Station {{ entry.commonStation }} - Line
+                {{ entry.lines[1].name }}: Station {{ entry.commonStation }} -
+                Station {{ arrivalStation }}
+              </button>
+            </li>
+          </ul>
+        </ng-container>
+      </mat-card>
+    </div>
+    <ng-template #noMatch>
+      <mat-card class="no-match-card">
+        <p>No match</p>
+      </mat-card>
+    </ng-template>
+  </div>
+  
+  <div class="schedules-options">
+
+    <mat-card
+      class="matching-schedules-card"
+      *ngIf="matchingSchedules && matchingSchedules.length > 0"
+    >
+      <h3>Matching Schedules:</h3>
+      <ul>
+        <li *ngFor="let schedule of matchingSchedules">
+          <div class="schedule-item">
+            <div>
+              <p>
+                Bus ID: {{ schedule.id_bus }} - Line: {{ schedule.id_Line }} <br />
+                Departure Time: {{ schedule.H_d }} - Arrival Time:
+                {{ schedule.H_f }}
+              </p>
+            </div>
+            <button
+              mat-button
+              class="reservation-button"
+              (click)="makeReservation(schedule)"
+            >
+              Make Reservation
+            </button>
+          </div>
+        </li>
+      </ul>
+      <div class="reservation-message-card" *ngIf="showReservationMessage" >
+        <mat-icon>access_time</mat-icon>
+        <p class="reservation-message">
+          You have successfully made a reservation for Bus ID:
+          {{ reservedSchedule.id_bus }}, Line: {{ reservedSchedule.id_Line }}.<br/>
+          You'll reseave a notification 15min befor bus arrival.
+        </p>
+      </div>
+    </mat-card>
+  
+    <mat-card class="no-schedule-message-card" *ngIf="showNoScheduleMessage">
+      
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="none" stroke="#333" stroke-width="1" stroke-linejoin="round"/><path d="M33 25L29 23" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 23L14 25" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M31 35C31 35 29 31 24 31C19 31 17 35 17 35" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p>No matching schedules found for this line currently.</p>
+      
+    </mat-card>
+  </div>
+
+
+  <!-- Display matching schedules -->
+
+</div>

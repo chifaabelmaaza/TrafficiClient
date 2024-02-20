@@ -1,0 +1,46 @@
+
+
+<div class="container">
+  <div class="map-container">
+    <app-map></app-map>
+  </div>
+  <div class="rgside-card yellow-wrapper ">
+    <div class="header-section">
+        <div class="container-y">
+          <div class="messagebox">
+            <h1>Book your ride <strong>online</strong></h1>
+            <!-- <hr> -->
+            <p class="lead" style="margin-top: 10px;">
+              Comfortably plan your trip from your computer, with <strong>no need to call</strong>!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h2>Ride Information</h2>
+        <hr />
+        <div class="infos-values">
+          <div class="title-infos"><strong>Distance:</strong></div>
+          <div>{{ routeInfo.distance }} km</div>
+        </div>
+        <div class="infos-values">
+          <div class="title-infos"><strong>Time:</strong></div>
+          <div>{{ routeInfo.time }} hours</div>
+        </div>
+        <div class="infos-values">
+          <div class="title-infos"><strong>Cost:</strong></div>
+          <div>{{ routeInfo.cost }} MAD</div>
+        </div>
+        <button  *ngIf="!buttonClicked" (click)="confirmRequest()">Confirm Request</button>
+        <div class="confirmation-msg" *ngIf="isConfirmed">
+          <mat-icon>access_time</mat-icon>
+          <p  class="confirmation-message">
+            Your request has been successfully recorded. Please wait for confirmation from one of our taxi drivers.
+          </p>
+        </div>
+      </div>
+  </div>
+ 
+</div>
+
+

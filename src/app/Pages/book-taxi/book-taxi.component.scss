@@ -1,0 +1,151 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  height: 70%;
+
+
+  .map-container {
+    width: 70%;
+    height: 100%;
+  }
+  .yellow-wrapper {
+    background-color: #fdd943;
+    
+  }
+
+  .rgside-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+    height: 550px;
+
+    // justify-content: center;
+
+      .info-card {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: beige;
+        border-radius: 8px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+       
+
+    
+        h2 {
+          font-size: 1.8em;
+          margin-bottom: 10px;
+        }
+    
+        .infos-values {
+          width: 40%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+    
+          div {
+            font-size: 1.1em;
+            width: 100px;
+            height: 47px;
+          }
+        }
+    
+        button {
+          background-color: #fdd943;
+          border-radius: 8px;
+          border: none;
+          color: rgb(87, 85, 85);
+          font-size: 1.2em;
+          padding: 12px 24px;
+          text-decoration: none;
+          display: inline-block;
+          transition: background-color 0.3s ease;
+          box-shadow: 0 0 5px rgba(99, 99, 99, 0.4);
+          width: 200px;
+          height: 44px;
+          text-align: center;
+    
+          &:hover {
+            background-color: rgba(255, 255, 255, 1);
+          }
+        }
+    
+        .confirmation-msg {
+          display: flex;
+          align-items: center;
+          background-color: rgb(41 142 0 / 78%);
+          border-radius: 8px;
+          text-align: center;
+          width: 84%;
+          margin: 30px;
+          padding: 15px 20px;
+          color: white;
+          font-weight: bold;
+          letter-spacing: 0.1em;
+          line-height: 1.5em;
+          position: relative; /* Position relative for absolute positioning */
+          animation: floatConfirmation 5s ease infinite; /* Animation for floating effect */
+    
+          mat-icon {
+            width: 65px;
+            font-size: 36px;
+            height: 52px;
+            margin-right: 10px;
+          }
+        }
+      }
+    
+      .header-section {
+          color: #222;
+        //   padding: 20px 0;
+        //   margin-bottom: 30px;
+      
+        .container-y {
+          // // width: 1170px;
+          // margin-right: auto;
+          // margin-left: auto;
+          padding-left: 15px;
+          padding-right: 15px;
+      
+          .messagebox {
+            text-align: center;
+            h1 {
+              font-size: 35px;
+            }
+            hr {
+              width: 30px;
+              margin-bottom: 0;
+              margin-top: 0;
+              border-width: 2px 0 0;
+              border-color: #000;
+            }
+            .lead {
+              font-family: Lato, sans-serif;
+              font-weight: 300;
+              line-height: 1.9;
+              margin: 15px 0;
+            }
+          }
+        }
+      }
+  }
+
+}
+
+
+@keyframes floatConfirmation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

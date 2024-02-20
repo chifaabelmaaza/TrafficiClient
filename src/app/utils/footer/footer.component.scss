@@ -1,0 +1,122 @@
+/* footer.component.scss */
+.app-footer {
+    background-color: #000; /* Adjust background color as needed */
+    padding: 20px 50px; /* Adjust padding as needed */
+    text-align: center;
+    height: 381px;
+    color: beige;
+    display: flex;
+    // align-items: center;
+    flex-direction: column;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+  
+    .footer-content {
+      display: flex;
+      flex: 2;
+      height: 250px;
+      margin-bottom: 10px;
+  
+      .part {
+        width: 100px;
+        margin: 10px;
+        // border:1px solid black;
+      }
+  
+      .logo-part {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 20px;
+  
+        .logo {
+          height: 60px;
+          margin-bottom: 15px;
+        }
+        p {
+          font-size: 16px;
+          flex-wrap: wrap;
+          text-align: justify;
+          line-height: 1.5em;
+          letter-spacing: 0.1em;
+          width: 60%;
+        }
+      }
+  
+      .nav-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        flex: 2;
+        height: 100%;
+  
+        a {
+          text-decoration: none;
+          color: beige;
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 15px;
+          letter-spacing: 0.03em;
+  
+        }
+      }
+  
+      .third-part {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: left;
+        // align-items: start;
+        height: 100%;
+        font-size: 17px;
+  
+        .services{
+          p{
+            margin-top: 10px;
+            width: 70%;
+          }
+  
+          
+        }
+        .titles{
+          margin-bottom: 15px;
+        }
+  
+        .horaire{
+          display: flex;
+          flex-direction: column;
+          
+        }
+  
+        .social-media {
+          display: flex;
+          flex-direction: column;
+          // justify-content: center;
+          margin-top: 10px;
+          .social-icons {
+            svg{
+              font-size: 20px;
+              margin-right: 10px;
+  
+            }
+            a {
+              margin: 0 10px;
+              color: beige;
+            }
+            
+          }
+        }
+      }
+    }
+    .copyright {
+      margin-top: 20px;
+    }
+  }
+  

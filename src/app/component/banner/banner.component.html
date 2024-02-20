@@ -1,0 +1,19 @@
+<div class="banner" [style.background-image]="'url(' + bannerItems[currentIndex].image + ')'">
+  <!-- Arrow icons to control the slider -->
+  <button mat-icon-button class="arrow left" (click)="prevSlide()">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <button mat-icon-button class="arrow right" (click)="nextSlide()">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+
+  <!-- Container for sliding content -->
+  <div class="slider-container">
+    <!-- Image and text content -->
+    <div class="content-container">
+      <h1>{{ bannerItems[currentIndex].title }}</h1>
+      <p>{{ bannerItems[currentIndex].description }}</p>
+      <a mat-button color="accent" [routerLink]="[bannerItems[currentIndex].link]">{{ bannerItems[currentIndex].buttonText }}</a>
+    </div>
+  </div>
+</div>

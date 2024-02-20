@@ -1,0 +1,111 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../../../assets/images/yellow-city-backdrop-vector-2104090.jpg");
+  background-size: cover;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(243 211 61 / 50%);
+  }
+
+  mat-card {
+    width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    .app-part {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 40%;
+        height: 90%;
+        cursor: pointer;
+      }
+    }
+
+    mat-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+    }
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: white;
+      padding: 0.8rem;
+      margin-bottom: 0.5rem;
+      transition: border-color 0.3s, background-color 0.3s;
+
+      &:focus {
+        outline: none;
+        border-color: #0066cc;
+        background-color: #f0f0f0;
+      }
+    }
+
+    .mat-form-field-label {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: #808080;
+      transition: transform 0.3s, font-size 0.3s, color 0.3s;
+
+      &:focus-within {
+        transform: translateY(-120%);
+        font-size: 10px;
+        color: rgb(253, 217, 65);
+      }
+    }
+  }
+
+  button {
+    background-color: rgb(253, 217, 65);
+    color: black;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1.5rem;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+
+    &:hover {
+      background: rgb(255, 191, 0);
+    }
+  }
+}

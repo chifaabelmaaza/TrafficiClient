@@ -1,0 +1,119 @@
+/* banner.component.scss */
+
+.banner {
+    position: relative;
+    overflow: hidden;
+    height: 600px; /* Set the fixed height as needed */
+    width: 100%; /* Set the width as needed */
+    background-size: cover; /* Ensure the entire background image is covered */
+    background-repeat: no-repeat;
+    background-position: bottom right; /* Center the background image */
+    transition: background-image 0.5s ease; /* Add transition for smooth background image change */
+  
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(
+        0,
+        0,
+        0,
+        0.2
+      ); /* Black filter with reduced opacity */
+    }
+  
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 100%; /* Set the height to 100% to fill the banner */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      z-index: 1; /* Ensure the slider container is behind the buttons */
+  
+      .content-container {
+        position: absolute;
+        left: 10%;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 200px;
+        width: 500px;
+        text-align: left;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+  
+        h1 {
+          font-size: 2.5em; /* Increase font size for the title */
+          margin-bottom: 10px; /* Add some bottom margin for better spacing */
+        }
+  
+        p {
+          font-size: 1.6em; /* Increase font size for the paragraph */
+          margin-bottom: 15px; /* Add more bottom margin for better spacing */
+          line-height: 1.4; /* Add spacing between lines */
+        }
+  
+        a {
+          background-color: rgba(
+            255,
+            255,
+            255,
+            0.7
+          ); /* White background with reduced opacity */
+          border-radius: 8px;
+          color: black;
+          font-size: 1.6em;
+          padding: 12px 24px;
+          text-decoration: none; /* Remove underlines */
+          display: inline-block; /* Ensure block-level appearance with padding */
+          transition: background-color 0.3s ease; /* Add transition for a smooth effect */
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+          width: 205px;
+          height: 50px;
+          text-align: center;
+  
+          &:hover {
+            background-color: rgba(255, 255, 255, 1); /* Full opacity on hover */
+          }
+        }
+      }
+    }
+  
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 36px; /* Adjust the size of the arrows */
+      color: black; /* Arrow color */
+      background-color: rgba(
+        255,
+        255,
+        255,
+        0.7
+      ); /* Semi-transparent white background */
+      border: none;
+      cursor: pointer;
+      outline: none;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Ensure the buttons are above the slider container */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow */
+    }
+  
+    .left {
+      left: 10px;
+    }
+  
+    .right {
+      right: 10px;
+    }
+  }
+  

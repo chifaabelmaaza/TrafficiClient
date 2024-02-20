@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="contact-us-title">
+      <h2>Contacts</h2>
+      <p>We're always here for <strong>you</strong>.</p>
+    </div>
+    <div class="contact-us-body">
+      <div class="img-place">
+        <img src="../../../assets/images/assistante.jpeg">
+      </div>
+      <div class="text-content">
+        <p>Please share your feedback or <strong>report an issue</strong> with us.</p>
+        <button *ngIf="showButton" (click)="toggleForm()" class="contact-button">Contact-us</button>
+        <form *ngIf="showForm" (submit)="submitForm()" class="contact-form" [@fadeInOut]="showForm ? 'visible' : 'hidden'">
+          <app-alert *ngIf="showSuccessMessage" type="success" message="Message submitted to support"></app-alert>
+          <app-alert *ngIf="notacceptPolitique" type="danger" message="Please accept the policies before submitting the form."></app-alert>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" [(ngModel)]="formData.name" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" [(ngModel)]="formData.email" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" [(ngModel)]="formData.message" required></textarea>
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="acceptPolicy" name="acceptPolicy" [(ngModel)]="formData.acceptPolicy" required>
+            <label for="acceptPolicy"> I accept policies </label>
+          </div>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

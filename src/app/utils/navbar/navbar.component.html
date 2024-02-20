@@ -1,0 +1,46 @@
+<mat-toolbar
+  color="primary"
+  class="sticky-toolbar"
+  [class.elevated]="isScrolled"
+>
+  <div class="app-part">
+    <img src="../../../assets/images/app_logo.jpg" alt="Logo" class="logo" />
+    <span class="app-name">Traffici</span>
+  </div>
+
+  <div class="menu-list">
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/about">About</button>
+    <button mat-button routerLink="/#first-section">Book a Bus</button>
+    <button mat-button routerLink="/#first-section">Book a Taxi</button>
+    <button mat-button routerLink="/contact">Contact</button>
+  </div>
+
+  <!-- <span class="spacer"></span> -->
+  <div class="user-section">
+    <!-- Check if user is connected -->
+    <ng-container *ngIf="isUserConnected; else loginButton">
+      <button mat-icon-button>
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </ng-container>
+
+    <ng-template #loginButton class="login-section">
+      <button mat-button routerLink="login">Login</button>
+      <div>
+        <span class="topbar-signup">
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="navigateToSignup($event, 'client')">
+              Signup as Client
+            </button>
+            <button mat-menu-item (click)="navigateToSignup($event, 'driver')">
+              Signup as Driver
+            </button>
+          </mat-menu>
+
+          <button mat-button [matMenuTriggerFor]="menu">Signup</button>
+        </span>
+      </div>
+    </ng-template>
+  </div>
+</mat-toolbar>

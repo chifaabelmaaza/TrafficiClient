@@ -1,0 +1,220 @@
+<app-banner></app-banner>
+<div class="container">
+  <section class="white-wrapper first-sct" id="first-section">
+    <h2>Try Booking Online Now !</h2>
+    <div class="cards-sct">
+      <div class="card">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Taxi Booking</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-icon>local_taxi</mat-icon>
+            <label>Select Destination:</label>
+            <div class="custom-autocomplete" [class.open]="isMenuOpen">
+              <input
+                [formControl]="inputControl"
+                placeholder="Enter your Destination"
+                (focus)="toggleMenu()"
+              />
+              <!-- <button mat-button color="primary" (click)="toggleSuggestions()" [disabled]="!suggestionsEnabled">
+                OK
+              </button> -->
+              <ul
+                *ngIf="filteredOptions | async as filteredValues"
+                class="options-list"
+              >
+                <li
+                  *ngFor="let option of filteredValues"
+                  (click)="selectOption(option)"
+                >
+                  {{ option.display_name }}
+                </li>
+              </ul>
+            </div>
+            <button mat-button  (click)="Submit()">
+              <div class="btn-case">
+                <p> Book Now </p>
+                <img src="../../../assets/images/31-arrow-right-outl.gif">
+              </div>
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="card">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Bus Booking</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-icon>directions_bus</mat-icon>
+            <div class="stations-select">
+              <div class="depart-stt">
+                <label>Departure :</label>
+                <div class="custom-form-field">
+                  <select id="departStationSelect" [(ngModel)]="departStation">
+                    <option *ngFor="let station of busStations" [value]="station">{{ station }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="arrv-stt">
+                <label>Arrival:</label>
+                <div class="custom-form-field">
+                  <select id="arrivalStationSelect" [(ngModel)]="arrivalStation">
+                    <option *ngFor="let station of busStations" [value]="station">{{ station }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <button mat-button (click)="bookBus()">
+              <div class="btn-case">
+                <p> Book Now </p>
+                <img src="../../../assets/images/31-arrow-right-outl.gif">
+              </div>
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+
+  <section class="make-bg-full first-divider">
+    <div class="calloutbox-full-mini nocontainer">
+      <h2>Say hello to online automation</h2>
+    </div>
+  </section>
+
+  <!-- <section class="make-bg-full"></section> -->
+ 
+  <section class="white-wrapper scd-sct">
+    <div class="img-content" style="visibility: visible">
+      <img
+        src="../../../assets/images/Taxi-Booking-App.png"
+        alt="Explore Online Booking options by TaxiCaller"
+        class="img-responsive multidevice-home center-block"
+      />
+    </div>
+    <div class="content-info">
+      <div class="general-title centered">
+        <h2>Online booking</h2>
+        <hr />
+      </div>
+      <div class="text-left">
+        <ul class="check large-check">
+          <li>
+            <mat-icon class="check-icon">check</mat-icon
+            ><strong>Booking form</strong> for your website
+          </li>
+          <li>
+            <mat-icon class="check-icon">check</mat-icon
+            ><strong>Reception booking</strong> for accounts
+          </li>
+          <li>
+            <mat-icon class="check-icon">check</mat-icon
+            ><strong>Kiosk app</strong> for express bookings
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="make-bg-full bus-section">
+    <!-- <div class="yellow-wrapper footer-section"> -->
+    <div class="bus-info">
+      <div class="messagebox">
+        <h2>Effortless online bus management for easy access</h2>
+        <p class="lead" style="margin-top: 10px">
+          See how <strong>Traffici</strong> makes running your transport company
+          <strong>simple and easy</strong>.
+        </p>
+        <button class="padded" routerLink="/contact">
+          <a data-toggle="tooltip" >Try it Nom</a>
+        </button>
+      </div>
+      <div class="img">
+        <img src="../../../assets/images/bus_stop1.png" />
+      </div>
+    </div>
+    <!-- </div> -->
+  </section>
+
+  <section>
+    <div class="product-carousel">
+      <div class="carousel-image">
+        <img
+          src="../../../assets/images/boost-revenue-for-taxi-business-1-1024x576.gif"
+        />
+      </div>
+      <div class="carousel-item-text">
+        <h2><strong>Increase revenue</strong> by being found!</h2>
+        <ul class="check large-check">
+          <li>
+            <mat-icon class="check-icon">check</mat-icon>Attract
+            <strong>corporate customers</strong>
+          </li>
+          <li>
+            <mat-icon class="check-icon">check</mat-icon>Acquire
+            <strong>new contracts</strong>
+          </li>
+          <li>
+            <mat-icon class="check-icon">check</mat-icon>Increase your
+            <strong>online presence</strong>
+          </li>
+        </ul>
+        <button mat-button routerLink="/driver-signup">
+          Register Now
+        </button>
+      </div>
+    </div>
+  </section>
+  <section class="iconbar make-bg-full services-bar">
+    <div class="services-icons">
+      <div
+        class="iconbar-icon wow fadeInUp animated"
+        style="visibility: visible"
+      >
+        <mat-icon>notification_important</mat-icon>
+        <p>Text <strong>notifications</strong></p>
+      </div>
+      <div
+        class="iconbar-icon wow fadeInUp animated"
+        data-wow-delay=".2s"
+        style="
+          visibility: visible;
+          -webkit-animation-delay: 0.2s;
+          -moz-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+        "
+      >
+        <mat-icon>search</mat-icon>
+        <p><strong>Search</strong> addresses</p>
+      </div>
+      <div
+        class="iconbar-icon wow fadeInUp animated"
+        data-wow-delay=".4s"
+        style="
+          visibility: visible;
+          -webkit-animation-delay: 0.4s;
+          -moz-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+        "
+      >
+        <mat-icon>history</mat-icon>
+        <p>Trip <strong>history</strong></p>
+      </div>
+    </div>
+  </section>
+  <section class="white-wrapper Newsletter">
+    <div class="newsletter-container">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay updated with our latest news and promotions!</p>
+      <div class="input-container">
+        <input type="email" placeholder="Enter your email address">
+        <button class="subscribe-button">Subscribe</button>
+      </div>
+    </div>
+  </section>
+  
+</div>
